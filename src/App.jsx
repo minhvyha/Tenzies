@@ -1,5 +1,4 @@
-import './App.css'
-import Dice from './Dice'
+import Die from './Die'
 
 
 function App() {
@@ -7,7 +6,7 @@ function App() {
 
   const dices = diceValue.map(value =>{
     return (
-      <Dice 
+      <Die 
         value={value}
       />
     )
@@ -15,7 +14,7 @@ function App() {
 
   return (
     <div className='body'>
-      something
+      {dices}
     </div>
   )
 }

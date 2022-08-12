@@ -1,9 +1,7 @@
-import './Dice.css'
-
 function Dice(props) {
   return (
     <div className='dice-container'>
-      
+      <span>{props.value}</span>
     </div>
   )
 }
