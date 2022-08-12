@@ -1,8 +1,10 @@
 import './Dice.css'
 
-function Dice() {
+function Dice(props) {
   return (
-    <div>Dice</div>
+    <div className='dice-container'>
+      
+    </div>
   )
 }
 
