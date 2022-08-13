@@ -13,6 +13,14 @@ function App() {
     return newArray
   }
 
+  function holdDice(id){
+    const newArray = []
+    dices.forEach(dice =>{
+      newArray.push(dice.id === id ? {...dice, isHeld: !dice.isHeld} : dice)
+    })
+    setDices(newArray)
+  }
+
   function rollDice(){
     setDices(allNewDice())
   }
@@ -23,6 +31,8 @@ function App() {
         key={dice.id}
         value={dice.value}
         isHeld={dice.isHeld}
+        id={dice.id}
+        holdDice={holdDice}
       />
     )
   })

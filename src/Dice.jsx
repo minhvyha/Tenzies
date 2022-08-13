@@ -1,6 +1,6 @@
 function Dice(props) {
   return (
-    <div className={props.isHeld === true ? 'dice held' : 'dice'}>
+    <div onClick={(event) =>props.holdDice(props.id)} className={props.isHeld === true ? 'dice held' : 'dice'}>
       <span>{props.value}</span>
     </div>
   )
