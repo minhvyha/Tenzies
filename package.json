@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "confetti": "^1.1.5",
     "nanoid": "^4.0.0",
     "react": "^18.2.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
