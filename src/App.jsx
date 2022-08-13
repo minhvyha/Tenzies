@@ -14,11 +14,9 @@ function App() {
   }
 
   function holdDice(id){
-    const newArray = []
-    dices.forEach(dice =>{
-      newArray.push(dice.id === id ? {...dice, isHeld: !dice.isHeld} : dice)
-    })
-    setDices(newArray)
+    setDices(dices => dices.map(dice =>{
+      return dice.id === id ? {...dice, isHeld: !dice.isHeld} : dice
+    }))
   }
 
   function rollDice(){
@@ -32,7 +30,7 @@ function App() {
         value={dice.value}
         isHeld={dice.isHeld}
         id={dice.id}
-        holdDice={holdDice}
+        holdDice={() => holdDice(dice.id)}
       />
     )
   })
