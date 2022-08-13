@@ -59,6 +59,7 @@ function App() {
 
   return (
     <main>
+      
       {tenzies && <Confetti />}
       <div className='dice-container'>
         {diceElements}

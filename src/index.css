@@ -19,7 +19,7 @@
 /*=============== MAIN CONTAINER ===============*/
 
 main{
-  background-color: #F5F5F5;
+  background-color: #e6e6e6;
   width: 100%;
   height: 100%;
   display: flex;
@@ -61,6 +61,7 @@ main{
   font-size: 2rem;
   border-radius: 8%;
   padding: 6px;
+  place-self: center;
 }
 
 .dice.held{
@@ -94,4 +95,26 @@ main{
   grid-column-end: -1;
 }
 /*=============== BREAKPOINTS ===============*/
-
+@media only screen and (min-width: 500px) {
+  .dice-container{
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 650px;
+    max-height: 280px;
+    margin-bottom: 1rem;
+  }
+  .dice{
+    margin: 5px;
+  }
+  .roll-button{
+    padding: 10px 24px;
+  }
+  
+}
+@media only screen and (min-width: 1000px) {
+  .main-body{
+    padding: 2.5rem;
+  }
+  main{
+    border-radius: .4rem;
+  }
+}
