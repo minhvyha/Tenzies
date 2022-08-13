@@ -27,7 +27,7 @@ main{
   align-items: center;
   flex-direction: column;
   gap: .5rem;
-  border-radius: .6rem;
+  border-radius: .5rem;
 }
 
 .dice-container{
