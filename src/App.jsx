@@ -11,7 +11,27 @@ function App() {
   const [seconds, setSeconds] = React.useState(0)
   const [minutes, setMinutes] = React.useState(0)
   const [hours, setHours] = React.useState(0)
+  const [highScore, setHighScore] = React.useState({seconds:seconds, minutes:minutes, hours:hours})
 
+  React.useEffect(() =>{
+    let high = {seconds:seconds, minutes:minutes, hours:hours}
+    localStorage.setItem('highScore','a')
+  }, [tenzies])
+
+  if (seconds > 59){
+    setSeconds(0)
+    setMinutes(minute => minute + 1)
+  }
+  if (minutes > 59){
+    setMinutes(0)
+    setHours(hour => hour + 1)
+  }
+  if (hours > 23){
+    setSeconds(0)
+    setMinutes(0)
+    setHours(0)
+  }
+  
   React.useEffect(() =>{
     if (!start){
       return
@@ -21,23 +41,10 @@ function App() {
     }
     let timer = setInterval(() =>{
       setSeconds(second => second + 1)
-      if (seconds > 59){
-        setSeconds(0)
-        setMinutes(minute => minute + 1)
-      }
-      if (minutes > 59){
-        setMinutes(0)
-        setHours(hour => hour + 1)
-      }
-      if (hours > 23){
-        setSeconds(0)
-        setMinutes(0)
-        setHours(0)
-      }
     }, 1000)
-
+    
     return () => clearInterval(timer)
-  })
+  }, [start])
   
   React.useEffect(() => {
     let value = dices[0].value
@@ -108,6 +115,7 @@ function App() {
         <h1 className='timer'>Time {String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}</h1>
         <h1 className='count-roll'>Count: {roll}</h1>
       </div>}
+      {start && <h1 className='high-score'>High Score {String(highScore.hours).padStart(2, '0')}:{String(highScore.minutes).padStart(2, '0')}:{String(highScore.seconds).padStart(2, '0')}</h1>}
       <div className='dice-container'>
         {diceElements}
       </div>

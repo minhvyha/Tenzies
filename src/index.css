@@ -68,6 +68,10 @@ main{
   justify-content: center;
   margin-top: .8rem;
 }
+.high-score{
+  margin-top: .2rem;
+  font-size: 1.35rem;
+}
 /*=============== DIE ===============*/
 
 .dice{
