@@ -1,6 +1,6 @@
 import React from 'react'
 import Dice from './Dice'
-
+import { nanoid } from 'nanoid'
 
 function App() {
   const [dices, setDices] = React.useState(allNewDice())
@@ -8,7 +8,7 @@ function App() {
   function allNewDice(){
     const newArray = []
     for (let i = 0; i < 10; i++){
-      newArray.push(Math.floor(Math.random() * 6) + 1)
+      newArray.push({id: nanoid(),value:(Math.floor(Math.random() * 6) + 1), isHeld:false})
     }
     return newArray
   }
@@ -17,10 +17,12 @@ function App() {
     setDices(allNewDice())
   }
 
-  const diceElements = dices.map(value =>{
+  const diceElements = dices.map(dice =>{
     return (
       <Dice 
-        value={value}
+        key={dice.id}
+        value={dice.value}
+        isHeld={dice.isHeld}
       />
     )
   })
