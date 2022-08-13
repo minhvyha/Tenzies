@@ -14,6 +14,7 @@
   height: 100vh;
   font-family: 'Karla';
   font-weight: 700;
+  color: black;
 }
 
 /*=============== MAIN CONTAINER ===============*/
@@ -40,23 +41,33 @@ main{
 .roll-button{
   background-color: #5035FF;
   color: white;
-  font-size: 1.4rem;
-  padding: 10px 20px;
+  font-size: 1.2rem;
+  padding: 8px 20px;
   border: none;
   border-radius: .3rem;
   margin-bottom: .5rem;
 }
-
+.title{
+  margin-top: .6rem;
+  font-size: 1.6rem;
+}
+.instructions{
+  font-size: .7rem;
+  margin: 0 10px;
+}
+.count-roll{
+  margin-top: .8rem;
+}
 /*=============== DIE ===============*/
 
 .dice{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   background-color: #FFFFFF;
-  margin: 15px;
+  margin: 10px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
   font-size: 2rem;
   border-radius: 8%;
@@ -72,8 +83,8 @@ main{
 .dot{
   background-color: black;
   border-radius: 50%;
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   place-self: center;
 }
 .top{
@@ -104,9 +115,24 @@ main{
   }
   .dice{
     margin: 5px;
+    width: 80px;
+    height: 80px;
+  }
+  .dot{
+    width: 15px;
+    height: 15px;
   }
   .roll-button{
     padding: 10px 24px;
+    font-size: 22px;
+  }
+  .instructions{
+    font-size: 1rem;
+    margin: 0 1rem;
+  }
+  .title{
+    font-size: 2rem;
+    margin-bottom: .4rem;
   }
   
 }
@@ -116,5 +142,11 @@ main{
   }
   main{
     border-radius: .4rem;
+  }
+  .instructions{
+    font-size: 1.2rem;
+  }
+  .title{
+    font-size: 2.2rem;
   }
 }

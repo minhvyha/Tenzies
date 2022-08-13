@@ -7,8 +7,10 @@ function App() {
   const [dices, setDices] = React.useState(allNewDice())
   const [tenzies, setTenzies] = React.useState(false)
   const [roll, setRoll] = React.useState(0)
+  const [start, setStart] = React.useState(false)
 
   React.useEffect(() => {
+    setStart(true)
     let value = dices[0].value
     let isHeld = dices.every(dice => dice.isHeld)
     let sameValue = dices.every(dice => dice.value === value)
@@ -29,6 +31,9 @@ function App() {
   }
 
   function holdDice(id){
+    if (tenzies){
+      return
+    }
     setDices(dices => dices.map(dice =>{
       return dice.id === id ? {...dice, isHeld: !dice.isHeld} : dice
     }))
@@ -61,6 +66,10 @@ function App() {
     <main>
       
       {tenzies && <Confetti />}
+      {!start && <h1 className="title">Tenzies</h1>}
+      {!start && <p className="instructions">Roll until all dice are the same. 
+            Click each die to freeze it at its current value between rolls.</p>}
+      {start && <h1 className='count-roll'>Count: {roll}</h1>}
       <div className='dice-container'>
         {diceElements}
       </div>
