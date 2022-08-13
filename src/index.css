@@ -61,5 +61,8 @@ main{
   border-radius: 8%;
 }
 
+.dice.held{
+  background-color: #59E391;
+}
 /*=============== BREAKPOINTS ===============*/
 
