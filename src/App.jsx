@@ -7,15 +7,10 @@ function App() {
   const [tenzies, setTenzies] = React.useState(false)
 
   React.useEffect(() => {
-    let value = []
-    let isHeld = true
-    dices.forEach(dice =>{
-      if (dice.isHeld === false){
-        isHeld = false
-      }
-      value.push(dice.value)
-    })
-    if ([...new Set(value)].length === 1 && isHeld === true){
+    let value = dices[0].value
+    let isHeld = dices.every(dice => dice.isHeld)
+    let sameValue = dices.every(dice => dice.value === value)
+    if (sameValue && isHeld){
       console.log('win')
     }
   }, [dices])
