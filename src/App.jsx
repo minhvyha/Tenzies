@@ -6,6 +6,7 @@ import Confetti from 'react-confetti'
 function App() {
   const [dices, setDices] = React.useState(allNewDice())
   const [tenzies, setTenzies] = React.useState(false)
+  const [roll, setRoll] = React.useState(0)
 
   React.useEffect(() => {
     let value = dices[0].value
@@ -41,8 +42,9 @@ function App() {
     setDices(dices => dices.map(dice =>{
       return dice.isHeld === false ? {...dice, value: (Math.floor(Math.random() * 6) + 1)}: dice
     }))
+    setRoll(x => x + 1)
+    
   }
-
   const diceElements = dices.map(dice =>{
     return (
       <Dice 
