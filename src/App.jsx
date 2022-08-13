@@ -20,7 +20,9 @@ function App() {
   }
 
   function rollDice(){
-    setDices(allNewDice())
+    setDices(dices => dices.map(dice =>{
+      return dice.isHeld === false ? {...dice, value: (Math.floor(Math.random() * 6) + 1)}: dice
+    }))
   }
 
   const diceElements = dices.map(dice =>{
