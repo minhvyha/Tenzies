@@ -1,4 +1,4 @@
-import Die from './Die'
+import Dice from './Dice'
 
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   const dices = diceValue.map(value =>{
     return (
-      <Die 
+      <Dice 
         value={value}
       />
     )
