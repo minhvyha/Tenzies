@@ -1,10 +1,19 @@
+import React from 'react'
 import Dice from './Dice'
 
 
 function App() {
-  const diceValue = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  const [dices, setDices] = React.useState(allNewDice())
 
-  const dices = diceValue.map(value =>{
+  function allNewDice(){
+    const newArray = []
+    for (let i = 0; i < 10; i++){
+      newArray.push(Math.floor(Math.random() * 6) + 1)
+    }
+    return newArray
+  }
+
+  const diceElements = dices.map(value =>{
     return (
       <Dice 
         value={value}
@@ -13,9 +22,13 @@ function App() {
   })
 
   return (
-    <div className='body'>
-      {dices}
-    </div>
+    <main>
+      <div className='dice-container'>
+        {diceElements}
+      </div>
+      <button className='roll-button'>Roll</button>
+    </main>
+    
   )
 }
 

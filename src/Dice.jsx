@@ -1,6 +1,6 @@
 function Dice(props) {
   return (
-    <div className='dice-container'>
+    <div className='dice'>
       <span>{props.value}</span>
     </div>
   )
