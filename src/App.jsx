@@ -8,9 +8,38 @@ function App() {
   const [tenzies, setTenzies] = React.useState(false)
   const [roll, setRoll] = React.useState(0)
   const [start, setStart] = React.useState(false)
+  const [seconds, setSeconds] = React.useState(0)
+  const [minutes, setMinutes] = React.useState(0)
+  const [hours, setHours] = React.useState(0)
 
+  React.useEffect(() =>{
+    if (!start){
+      return
+    }
+    if (tenzies){
+      return
+    }
+    let timer = setInterval(() =>{
+      setSeconds(second => second + 1)
+      if (seconds > 59){
+        setSeconds(0)
+        setMinutes(minute => minute + 1)
+      }
+      if (minutes > 59){
+        setMinutes(0)
+        setHours(hour => hour + 1)
+      }
+      if (hours > 23){
+        setSeconds(0)
+        setMinutes(0)
+        setHours(0)
+      }
+    }, 1000)
+
+    return () => clearInterval(timer)
+  })
+  
   React.useEffect(() => {
-    setStart(true)
     let value = dices[0].value
     let isHeld = dices.every(dice => dice.isHeld)
     let sameValue = dices.every(dice => dice.value === value)
@@ -22,6 +51,7 @@ function App() {
     }
   }, [dices])
 
+
   function allNewDice(){
     const newArray = []
     for (let i = 0; i < 10; i++){
@@ -31,6 +61,7 @@ function App() {
   }
 
   function holdDice(id){
+    setStart(true)
     if (tenzies){
       return
     }
@@ -41,6 +72,10 @@ function App() {
 
   function rollDice(){
     if (tenzies){
+      setHours(0)
+      setMinutes(0)
+      setSeconds(0)
+      setStart(false)
       setDices(allNewDice())
       return
     }
@@ -69,7 +104,10 @@ function App() {
       {!start && <h1 className="title">Tenzies</h1>}
       {!start && <p className="instructions">Roll until all dice are the same. 
             Click each die to freeze it at its current value between rolls.</p>}
-      {start && <h1 className='count-roll'>Count: {roll}</h1>}
+      {start && <div className='start-menu'>
+        <h1 className='timer'>Time {String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}</h1>
+        <h1 className='count-roll'>Count: {roll}</h1>
+      </div>}
       <div className='dice-container'>
         {diceElements}
       </div>

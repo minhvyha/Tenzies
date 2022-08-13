@@ -56,6 +56,16 @@ main{
   margin: 0 10px;
 }
 .count-roll{
+  font-size: 1.1rem;
+}
+.timer{
+  font-size: 1.1rem;
+}
+.start-menu{
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  justify-content: center;
   margin-top: .8rem;
 }
 /*=============== DIE ===============*/
