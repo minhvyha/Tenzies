@@ -1,6 +1,6 @@
-<div align="center"><img src="preview.png"></div>
-<br/>
-<h1 align="center">Sudoku</h1>
+![preview img](/preview.png)
+
+# Tenzies
 ## [Live Demo](https://tenziesdice.netlify.app/)
 ## [Video Demo](https://youtu.be/aCz5QHt_9u8)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/65849be8-ad5b-438c-be9a-3f992d0ef4e5/deploy-status)](https://app.netlify.com/sites/tenziesdice/deploys)
